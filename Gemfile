@@ -14,7 +14,7 @@ group :development, :test do
 end
 group :production do
 	gem 'pg'
-	gem 'rails 12factor'
+	gem 'rails_12factor'
 end
 group :doc do
 	gem 'sdoc', require: false
