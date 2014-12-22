@@ -1,7 +1,13 @@
-$body-bg:	#2c3e50;
-$navbar-inverse-bg: #2c3e50;
-$navbar-inverse-link-color: white;
-$brand-primary: #8e44ad;
+@import url(http://fonts.googleapis.com/css?family=Lato400,700);
+
+$body-bg:#2c3e50;
+$navbar-inverse-bg:#2c3e50;
+$navbar-inverse-link-color:white;
+$brand-primary:#8e44ad;
 $jumbotron-bg:#ecf0f1;
 
 @import 'bootstrap';
+
+.center {
+	text-align: center;
+}
