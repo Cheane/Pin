@@ -1,11 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Play:400,700);
+
 $body-bg:#bdc3c7;
 $text-color:#2c3e50;
 $font-family-sans-serif:	 'Play', "Helvetica Neue", Helvetica, Arial, sans-serif;
 $navbar-default-bg: #ecf0f1;
 $navbar-default-brand-color: #34495e;
-$brand-primary:#c0392b;
+$brand-primary:#2980b9;
 $jumbotron-bg:#ecf0f1;
+$btn-default-color: #ecf0f1;
+$btn-default-bg:#c0392b;
 @import 'bootstrap';
 
 .center {
