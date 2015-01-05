@@ -1,30 +1,29 @@
 class PintsController < ApplicationController
   before_action :set_pint, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
-  respond_to :html
 
   def index 
     @pints = Pint.all
-    respond_with(@pints)
   end
 
   def show
-    respond_with(@pint)
   end
 
   def new
-    @pint = Pint.new
-    respond_with(@pint)
+    logger.info '--------------------- inspect current user -----------------'
+    logger.info current_user.inspect
+    logger.info '------------------------------------------------------------'
+    @pint = current_user.pints.build
   end
 
   def edit
   end
 
   def create
-    @pint = Pint.new(pint_params)
+    @pint = current_user.pints.build(pint_params)
    if @pint.save
-    respond_with(@pint)
-    redirect_to @pin, notice: 'Pin was successfully created.'
+    redirect_to @pint, notice: 'Pin was successfully created.'
     else
       render action: 'new'
     end
@@ -32,8 +31,7 @@ class PintsController < ApplicationController
 
   def update
     if @pint.update(pint_params)
-    respond_with(@pint)
-    redirect_to @pin, notice: 'Pin was successfully updated.'
+    redirect_to @pint, notice: 'Pin was successfully updated.'
     else
       render action: 'edit'
     end
@@ -41,8 +39,7 @@ class PintsController < ApplicationController
 
   def destroy
     @pint.destroy
-    redirect_to pins_url
-    respond_with(@pint)
+    redirect_to pints_url
   end
 
   private

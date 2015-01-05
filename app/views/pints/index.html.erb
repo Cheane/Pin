@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Description</th>
+      <th>User_Id</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,6 +15,7 @@
     <% @pints.each do |pint| %>
       <tr>
         <td><%= pint.description %></td>
+        <td><%= pint.user_id %></td>
         <td><%= link_to 'Show', pint %></td>
         <td><%= link_to 'Edit', edit_pint_path(pint) %></td>
         <td><%= link_to 'Destroy', pint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
