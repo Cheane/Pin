@@ -4,6 +4,8 @@
   <strong>Description:</strong>
   <%= @pint.description %>
 </p>
-
+  <% if @pint.user == current_user %>
 <%= link_to 'Edit', edit_pint_path(@pint) %> |
+<% end -%>
 <%= link_to 'Back', pints_path %>
+

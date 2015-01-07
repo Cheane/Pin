@@ -1,6 +1,7 @@
 class PintsController < ApplicationController
   before_action :set_pint, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
 
   def index 
@@ -46,6 +47,11 @@ class PintsController < ApplicationController
     def set_pint
       @pint = Pint.find(params[:id])
     end
+
+    def correct_user
+      @pint = current_user.pints.find_by(id: params[:id])
+      redirect_to pints_path, notice: "Not authorized to edit this pin !" if @pint.nil?
+    end 
 
     def pint_params
       params.require(:pint).permit(:description)
