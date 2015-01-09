@@ -54,6 +54,6 @@ class PintsController < ApplicationController
     end 
 
     def pint_params
-      params.require(:pint).permit(:description)
+      params.require(:pint).permit(:description, :image)
     end
 end

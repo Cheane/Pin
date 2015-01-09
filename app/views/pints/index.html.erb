@@ -3,8 +3,9 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Description</th>
-      <th>User_Id</th>
+      <th>User</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @pints.each do |pint| %>
       <tr>
+      <td><%= image_tag pint.image.url(:thumb)%></td>
         <td><%= pint.description %></td>
         <td><%= pint.user.email if pint.user %></td>
         <td><%= link_to 'Show', pint %></td>
