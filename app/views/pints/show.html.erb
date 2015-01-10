@@ -1,11 +1,21 @@
-<%= image_tag @pint.image.url (:medium)%>
-
-<p>
-  <strong>Description:</strong>
-  <%= @pint.description %>
-</p>
-  <% if @pint.user == current_user %>
-<%= link_to 'Edit', edit_pint_path(@pint) %> |
-<% end -%>
 <%= link_to 'Back', pints_path %>
+<div class= "row">
+<div class = "col-md-offset-2 col-md-8">
+<div class= "panel panel-default">
+<div class= "panel-heading center">
+<%= image_tag @pint.image.url (:medium)%>
+</div>
+<div class= "panel-body">
+ <p> <%= @pint.description %></p>
+ 	<p><strong><%= @pint.user.email if @pint.user %></strong></p>
+  			<% if @pint.user == current_user %>
+			 <%= link_to edit_pint_path(@pint) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+		<% end -%>
 
+		</div>
+	</div>
+	</div>
+</div>
