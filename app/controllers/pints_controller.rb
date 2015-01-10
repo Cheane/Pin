@@ -5,7 +5,7 @@ class PintsController < ApplicationController
 
 
   def index 
-    @pints = Pint.all
+    @pints = Pint.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
