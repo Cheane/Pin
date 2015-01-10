@@ -1,34 +1,16 @@
-<h1>Listing pins</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Description</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pints.each do |pint| %>
-      <tr>
-      <td><%= image_tag pint.image.url(:thumb)%></td>
-        <td><%= pint.description %></td>
-        <td><%= pint.user.email if pint.user %></td>
-        <td><%= link_to 'Show', pint %></td>
-        <% if pint.user == current_user %>
-        <td><%= link_to 'Edit', edit_pint_path(pint) %></td>
-        <td><%= link_to 'Destroy', pint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<% if user_signed_in? %>
-<%= link_to 'New pin', new_pint_path %>
+<div id ="pints" class = "transitions-enabled">
+ <% @pints.each do |pint| %>
+      <div class= "box panel panel-default">
+        <%= image_tag pint.image.url(:medium)%>
+        <div class ="panel-body">
+         <%= pint.description %>
+         <%= pint.user.email if pint.user %>
+         <%= link_to 'Show', pint %>
+          <% if pint.user == current_user %>
+         <%= link_to 'Edit', edit_pint_path(pint) %>
+         <%= link_to 'Destroy', pint, method: :delete, data: { confirm: 'Are you sure?' } %>
+         <% end %>
+        </div>
+        </div>
  <% end %>
+ </div>
