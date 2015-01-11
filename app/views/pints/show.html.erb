@@ -7,7 +7,7 @@
 </div>
 <div class= "panel-body">
  <p> <%= @pint.description %></p>
- 	<p><strong><%= @pint.user.email if @pint.user %></strong></p>
+ 	<p><strong><%= @pint.user.name if @pint.user %></strong></p>
   			<% if @pint.user == current_user %>
 			 <%= link_to edit_pint_path(@pint) do %>
               <span class="glyphicon glyphicon-edit"></span>

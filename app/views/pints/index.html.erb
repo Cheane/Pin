@@ -6,8 +6,8 @@
         <%= link_to image_tag(pint.image.url(:medium)), pint %>
         
         <div class ="panel-body">
-         <%= pint.description %>
-         <strong><%= pint.user.email if pint.user %></strong>
+         <%= pint.description %><br>
+         <strong><%= pint.user.name if pint.user %></strong>
           <% if pint.user == current_user %>
           <div class="actions">
 

@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20150107074751) do
 ActiveRecord::Schema.define(version: 20150110092938) do
 
   create_table "pints", force: true do |t|
